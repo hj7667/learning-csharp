@@ -1,44 +1,26 @@
-﻿using System.Diagnostics;
+﻿
+int a = 1;
+int b = 2;
 
-Console.WriteLine("Hello, World!");
+if (a == b) {
+    Console.WriteLine("a와 같다");
 
+} else {
+    Console.WriteLine("a 와 b는 다르다");
+}
 
-string message = "안녕하세요";
+Console.ReadKey();
 
-Console.WriteLine(message); // 주석
-Console.ReadKey();          // 주석
+//switch 문 표현식
 
+string grade = "F";
 
-/*
- 
- 클래스, 메서드, 인수, 문자열, 선언, 디버깅
- 
- 
- */
+string message = grade switch
+{
+    "A" => "우수한 성적입니다",
+    string g when g == "B" || g == "B+" => "좋은 성적입니다",
+    "c" => "보통 성적입니다.",
+    _ => "잘 모르겠습니다"
+};
 
-
-// 정수형 타입
-
-byte age = 255;
-
-// ㅁㅁㅁㅁㅁㅁㅁㅁ 2^8 = 256
-Console.WriteLine("age: ", age)
-
-
-// 실수
-
-
-// f,d, m
-// 부동 소수, 고정 소수 의 차이 
-// 더블 
-
-// bool , char 타입
-
-// 유니코드 표현식.,
-
-// enum 왜쓰는가
-
-// 명시적 선언 (Explicit Declaration)
-// 암시적 선언 (Implicit Declaration)
-// 의 장다넞ㅁ
-
+Console.WriteLine(message);
