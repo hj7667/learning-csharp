@@ -79,3 +79,10 @@ class Mage : Character
 {
     public override void Attack() { Console.WriteLine("파이어볼!"); }  // 이름 같음, 동작 다름
 }
+
+
+class GenericBox<T>
+{ 
+
+    private T _item
+}
