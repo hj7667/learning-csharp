@@ -10,6 +10,9 @@ class Program
         RunProblem3();
         RunProblem4();
         RunProblem5();
+        RunProblem6();
+        RunProblem7();
+
     }
 
     static void RunProblem1And2()
@@ -75,6 +78,38 @@ class Program
         Console.WriteLine(calc.Add(1, 2, 3));
 
 
+    }
+
+    static void RunProblem6()
+    {
+        Student student = new Student();
+
+        student.Score = 85;   // 정상 범위 → 저장됨
+        Console.WriteLine(student.Score);   // 85 출력
+
+        student.Score = 150;  // 범위 벗어남 → "점수는 0~100 사이여야 합니다" 출력, 저장 안 됨
+        Console.WriteLine(student.Score);   // 여전히 85 출력 (안 바뀜)
+    }
+
+    static void RunProblem7()
+    {
+        RefOutExample example = new RefOutExample();
+
+        // 7-1. ref 테스트
+        int x = 5;
+        Console.WriteLine($"ref 테스트 전: x = {x}");
+        example.DoubleValue(ref x);
+        Console.WriteLine($"ref 테스트 후: x = {x}");   // 10이 나와야 함
+
+        Console.WriteLine();
+
+        // 7-2. out 테스트 - 정상 케이스
+        bool success1 = example.TryParseAge("25", out int age1);
+        Console.WriteLine($"입력값 \"25\" → 성공 여부: {success1}, age: {age1}");
+
+        // 7-2. out 테스트 - 실패 케이스
+        bool success2 = example.TryParseAge("스물다섯", out int age2);
+        Console.WriteLine($"입력값 \"스물다섯\" → 성공 여부: {success2}, age: {age2}");
     }
 }
 
