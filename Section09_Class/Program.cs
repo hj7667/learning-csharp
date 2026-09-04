@@ -16,6 +16,8 @@
 //
 // void를 안 쓰면 컴파일러가 "이 메서드 결과가 뭘 반환하는지 모르겠다"라고 오류냄
 
+using System.ComponentModel;
+
 class Person
 {
     string Name;
@@ -81,6 +83,24 @@ class Program
         Console.WriteLine("--- 출금 실패 테스트 (잔액보다 많이 출금 시도) ---");
         b1.Withdraw(999999);
         Console.WriteLine(b1.GetBalance()); // 12000 그대로 (취소됐으니 안 바뀜)
+
+        // 문제4: Main에서 객체를 5개 만들고 Counter.Count 값을 출력해서 5가 맞는지 확인
+        Counter c1 = new Counter();
+        Counter c2 = new Counter();
+        Counter c3 = new Counter();
+        Counter c4 = new Counter();
+        Counter c5 = new Counter();
+
+        Console.WriteLine(Counter.Count);
+
+
+        // 문제5
+        Calculator calc = new Calculator();
+        Console.WriteLine(calc.Add(3, 5));
+        Console.WriteLine(calc.Add(3.5, 2.1));
+        Console.WriteLine(calc.Add(1, 2, 3));
+
+
     }
 }
 
@@ -124,5 +144,44 @@ class BankAccount
     public int GetBalance()
     {
         return Balance;
+    }
+}
+
+class Counter {
+// static 필드 Count: 지금까지 생성된 객체 수를 기록
+    public static int Count;
+    // 생성자에서 객체가 만들어질 때마다 Count를 1씩 증가
+    public Counter(){
+        Count++;
+    }
+
+    public void plusCounter() {
+        Console.WriteLine(Count);
+    
+    }
+
+}
+
+// 오버로딩 - 같은 클래스 안에서 같은 이름의 메서드를 여러버전으로 만드는것
+
+class Calculator {
+
+
+    
+    public int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+    public double Add(double a, double b)
+    {
+        return a + b;
+    
+    }
+
+    public int Add(int a, int b, int c) 
+    { 
+        return a + b + c;
+    
     }
 }
