@@ -121,7 +121,7 @@ class Program
 
         Console.WriteLine();
 
-        // ----- Product 테스트 -----
+        // ----- Product 테스트 -----+
         Product product = new Product("A001", "노트북", 15000);
 
         Console.WriteLine($"상품코드: {product.Code}, 이름: {product.Name}, 가격: {product.Price}");
