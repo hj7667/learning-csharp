@@ -12,6 +12,7 @@ class Program
         RunProblem5();
         RunProblem6();
         RunProblem7();
+        RunProblem8();
 
     }
 
@@ -110,6 +111,28 @@ class Program
         // 7-2. out 테스트 - 실패 케이스
         bool success2 = example.TryParseAge("스물다섯", out int age2);
         Console.WriteLine($"입력값 \"스물다섯\" → 성공 여부: {success2}, age: {age2}");
+    }
+
+    static void RunProblem8()
+    {
+        // ----- Circle 테스트 -----
+        Circle circle = new Circle(5);
+        Console.WriteLine($"반지름 5인 원의 넓이: {circle.GetArea()}");
+
+        Console.WriteLine();
+
+        // ----- Product 테스트 -----
+        Product product = new Product("A001", "노트북", 15000);
+
+        Console.WriteLine($"상품코드: {product.Code}, 이름: {product.Name}, 가격: {product.Price}");
+
+        // 가격은 일반 필드라서 나중에 바꿀 수 있음 (속성 통해서)
+        product.Price = 13000;
+        Console.WriteLine($"가격 변경 후: {product.Price}");
+
+        // 아래 줄의 주석을 풀어보면 컴파일 오류가 남
+        // readonly 필드는 생성자 밖에서 절대 값을 바꿀 수 없기 때문
+        // product.ProductCode = "AAA"; // ← 오류: A readonly field cannot be assigned to
     }
 }
 
