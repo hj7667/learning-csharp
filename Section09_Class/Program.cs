@@ -16,6 +16,7 @@ class Program
         RunProblem8();
         RunProblem9();
         RunProblem10();
+        RunProblem11();
 
     }
 
@@ -154,6 +155,33 @@ class Program
 
         // 실험: 아래 줄 주석 풀면 컴파일 오류 남 (abstract라서 직접 객체 생성 불가)
         // Shape s = new Shape();
+    }
+
+    static void RunProblem11()
+    {
+        // ----- 케이스 1: 선언한 타입 = 실제 객체 타입 (지금까지 계속 이렇게 해왔음) -----
+        // 이 경우엔 virtual이 있든 없든 결과가 항상 똑같음
+        Car car = new Car(100);
+        SportsCar sportsCar = new SportsCar(200);
+
+        car.Move();        // 도로를 달립니다
+        sportsCar.Move();  // 굉음을 내며 질주합니다
+
+        Console.WriteLine();
+
+        // ----- 케이스 2: 선언한 타입(Vehicle) ≠ 실제 객체(Car, SportsCar) -----
+        // 여기서만 virtual의 효과가 눈에 보임
+        // 왼쪽(Vehicle)은 "겉에 붙은 라벨", new Car(...)는 "실제 안에 든 내용물"
+        Vehicle v1 = new Car(100);
+        Vehicle v2 = new SportsCar(200);
+
+        v1.Move();
+        // virtual 있으면 → "도로를 달립니다"  (진짜 내용물인 Car 기준으로 실행)
+        // virtual 없으면 → "이동합니다"        (겉 라벨인 Vehicle 기준으로 실행)
+
+        v2.Move();
+        // virtual 있으면 → "굉음을 내며 질주합니다"
+        // virtual 없으면 → "이동합니다"
     }
 }
 
