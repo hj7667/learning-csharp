@@ -1,6 +1,7 @@
 ﻿
 
 using System;
+using System.Data.Common;
 
 class Program
 {
@@ -13,6 +14,7 @@ class Program
         RunProblem6();
         RunProblem7();
         RunProblem8();
+        RunProblem9();
 
     }
 
@@ -133,6 +135,14 @@ class Program
         // 아래 줄의 주석을 풀어보면 컴파일 오류가 남
         // readonly 필드는 생성자 밖에서 절대 값을 바꿀 수 없기 때문
         // product.ProductCode = "AAA"; // ← 오류: A readonly field cannot be assigned to
+    }
+
+    static void RunProblem9()
+    {
+        Dog dog = new Dog("도그");
+        Cat cat = new Cat("냥이");
+        dog.MakeSound();
+        cat.MakeSound();
     }
 }
 
