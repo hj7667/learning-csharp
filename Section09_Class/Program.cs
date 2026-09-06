@@ -15,6 +15,7 @@ class Program
         RunProblem7();
         RunProblem8();
         RunProblem9();
+        RunProblem10();
 
     }
 
@@ -79,8 +80,6 @@ class Program
         Console.WriteLine(calc.Add(3, 5));
         Console.WriteLine(calc.Add(3.5, 2.1));
         Console.WriteLine(calc.Add(1, 2, 3));
-
-
     }
 
     static void RunProblem6()
@@ -143,6 +142,18 @@ class Program
         Cat cat = new Cat("냥이");
         dog.MakeSound();
         cat.MakeSound();
+    }
+
+    static void RunProblem10()
+    {
+        Rectangle rect = new Rectangle(4, 5);
+        Triangle tri = new Triangle(6, 3);
+
+        rect.PrintInfo();   // 이 도형의 넓이는 20입니다
+        tri.PrintInfo();    // 이 도형의 넓이는 9입니다
+
+        // 실험: 아래 줄 주석 풀면 컴파일 오류 남 (abstract라서 직접 객체 생성 불가)
+        // Shape s = new Shape();
     }
 }
 
