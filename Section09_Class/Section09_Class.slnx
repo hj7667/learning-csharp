@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="../Section20_Async/Section20_Async.csproj" />
   <Project Path="../Section24_DI/Section24_DI.csproj" Id="f00794e6-b050-4e9a-a970-a86e29290d9d" />
+  <Project Path="../Section25_WinFormsDemo/Section25_WinFormsDemo.csproj" Id="ad741831-395a-4ca5-b630-578ea6ea9c53" />
   <Project Path="Section09_Class.csproj" />
 </Solution>
