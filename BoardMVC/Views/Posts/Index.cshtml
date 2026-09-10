@@ -1,0 +1,37 @@
+﻿@model List<Section26_BoardMVC.Models.Post>
+
+@{
+    ViewData["Title"] = "게시판 목록";
+}
+
+<h2>게시판 목록</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">글쓰기</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var post in Model)
+        {
+            <tr>
+                <td>@post.Title</td>
+                <td>@post.Writer</td>
+                <td>@post.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@post.Id">보기</a> |
+                    <a asp-action="Edit" asp-route-id="@post.Id">수정</a> |
+                    <a asp-action="Delete" asp-route-id="@post.Id">삭제</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

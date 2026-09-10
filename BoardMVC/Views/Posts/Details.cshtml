@@ -1,0 +1,13 @@
+﻿@model Section26_BoardMVC.Models.Post
+
+@{
+    ViewData["Title"] = "게시글 상세";
+}
+
+<h2>@Model.Title</h2>
+<p>작성자: @Model.Writer | 작성일: @Model.CreatedAt.ToString("yyyy-MM-dd HH:mm")</p>
+<hr />
+<p>@Model.Content</p>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">수정</a>
+<a asp-action="Index" class="btn btn-secondary">목록으로</a>

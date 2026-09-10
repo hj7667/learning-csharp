@@ -1,0 +1,19 @@
+﻿@model Section26_BoardMVC.Models.Post
+
+@{
+    ViewData["Title"] = "삭제 확인";
+}
+
+<h2>정말 삭제하시겠습니까?</h2>
+
+<div>
+    <h4>@Model.Title</h4>
+    <p>작성자: @Model.Writer</p>
+    <p>@Model.Content</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">삭제</button>
+    <a asp-action="Index" class="btn btn-secondary">취소</a>
+</form>
