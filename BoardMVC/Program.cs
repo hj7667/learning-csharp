@@ -8,7 +8,8 @@ builder.Services.AddControllersWithViews();
 
 // EF Core + SQL Server 연결 설정 등록
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 var app = builder.Build();
 
 // ── Configure 역할 (미들웨어 파이프라인 구성) ──
