@@ -4,7 +4,7 @@
 public class FirstTest
 {
     [Fact]
-    public void 첫번째_테스트()
+    public void FirstTestPlus()
     {
         // Arrange (준비): 테스트에 필요한 값 준비
         var expected = 4;
@@ -17,7 +17,7 @@ public class FirstTest
     }
 
     [Fact]
-    public void 두번째_테스트_문자열비교()
+    public void TwoTestWord()
     {
         var name = "Claude";
 

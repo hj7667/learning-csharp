@@ -28,6 +28,9 @@ dotnet test --filter "FullyQualifiedName~CalculatorTests"
 
 # 특정 메서드 이름 포함해서 실행
 dotnet test --filter "Add_두수를더하면"
+
+# 로그 자세히 보기
+dotnet test --logger "console;verbosity=detailed"
 ```
 
 ## 학습 순서

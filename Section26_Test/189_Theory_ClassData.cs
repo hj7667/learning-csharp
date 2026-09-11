@@ -3,31 +3,34 @@
 
 using System.Collections;
 
-public class Calculator
+namespace Section26_Test.Lecture189
 {
-    public int Add(int a, int b) => a + b;
-}
-
-// IEnumerable<object[]>를 구현하는 데이터 전용 클래스
-public class AddTestDataClass : IEnumerable<object[]>
-{
-    public IEnumerator<object[]> GetEnumerator()
+    public class Calculator
     {
-        yield return new object[] { 1, 2, 3 };
-        yield return new object[] { 10, 20, 30 };
+        public int Add(int a, int b) => a + b;
     }
 
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-}
-
-public class TheoryClassDataTests
-{
-    [Theory]
-    [ClassData(typeof(AddTestDataClass))] // 클래스를 데이터 소스로 지정
-    public void Add_ClassData로_여러케이스테스트(int a, int b, int expected)
+    // IEnumerable<object[]>를 구현하는 데이터 전용 클래스
+    public class AddTestDataClass : IEnumerable<object[]>
     {
-        var calculator = new Calculator();
-        var result = calculator.Add(a, b);
-        Assert.Equal(expected, result);
+        public IEnumerator<object[]> GetEnumerator()
+        {
+            yield return new object[] { 1, 2, 3 };
+            yield return new object[] { 10, 20, 30 };
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    }
+
+    public class TheoryClassDataTests
+    {
+        [Theory]
+        [ClassData(typeof(AddTestDataClass))] // 클래스를 데이터 소스로 지정
+        public void Add_ClassData로_여러케이스테스트(int a, int b, int expected)
+        {
+            var calculator = new Calculator();
+            var result = calculator.Add(a, b);
+            Assert.Equal(expected, result);
+        }
     }
 }
